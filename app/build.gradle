@@ -26,6 +26,10 @@ android {
     compileOptions.incremental = false
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -46,7 +50,8 @@ dependencies {
 
     // Dagger 2
     compile 'com.google.dagger:dagger:2.7'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+    kapt 'com.google.dagger:dagger-compiler:2.7'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
     // Butterknife
     compile 'com.jakewharton:butterknife:8.4.0'
