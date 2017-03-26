@@ -13,9 +13,9 @@ import com.example.kotlindemo.kotlinweather.dagger.module.ActivityModule
 import com.example.kotlindemo.kotlinweather.screen.home.fragment.HomeFragment
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityComponentProvider {
 
-    lateinit var activityComponent: ActivityComponent
+    private lateinit var activityComponent: ActivityComponent
     @Inject lateinit var test: TestClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,4 +34,6 @@ class MainActivity : AppCompatActivity() {
                         Fragment.instantiate(this, HomeFragment().javaClass.name))
                 .commit()
     }
+
+    override fun getActivityComponent(): ActivityComponent = activityComponent
 }
