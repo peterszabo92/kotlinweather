@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var activityComponent: ActivityComponent
+    lateinit var activityComponent: ActivityComponent
     @Inject lateinit var test: TestClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
